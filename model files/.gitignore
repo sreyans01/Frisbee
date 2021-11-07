@@ -1,0 +1,6 @@
+env/
+__pycache__/
+.vscode/
+models/deepnet_resnet_pretrained.pth
+models/keypointrcnn_resnet50_fpn.pth
+models/resnet18.pth

@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "137046039766",
+    "firebase_url": "https://frisbee-ed43b-default-rtdb.firebaseio.com",
+    "project_id": "frisbee-ed43b",
+    "storage_bucket": "frisbee-ed43b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137046039766:android:2113d7c58082d6b1077d77",
+        "android_client_info": {
+          "package_name": "com.myntra.frisbee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "137046039766-2rl7vfkfhk5b1krkob1238ndf1t512sf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdXiFGkTSoWNmAFmM4KrTexnfaVn3urLQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "137046039766-2rl7vfkfhk5b1krkob1238ndf1t512sf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137046039766:android:4a513a67940c4555077d77",
+        "android_client_info": {
+          "package_name": "com.sr.e"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "137046039766-2rl7vfkfhk5b1krkob1238ndf1t512sf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdXiFGkTSoWNmAFmM4KrTexnfaVn3urLQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "137046039766-2rl7vfkfhk5b1krkob1238ndf1t512sf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Imager</string>
+
+    <string name="errorString">Error connecting to server</string>
+</resources>
