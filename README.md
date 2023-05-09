@@ -1,6 +1,6 @@
 # Frisbee
 
-
+https://github.com/sreyans01/Frisbee/blob/9f6742ebae1cd025be2f7f094c2df967d3a6eed6/Inventory.mp4
 
 Built an Android app with a Myntra-like UI design backed by a Deep Learning model with 3 stages - Object Detection, Keypoint Extraction, and Feature vector embedding. The idea was to recommend similar fashion products of a famous influencer for the Gen-Z people through which the user can input an image/video, and the user will get the desired recommendations from the inventory (of 100+ items in our project) from most to least similar. The backend data was kept in Firebase, and most of the Android code is in MVVM.
 
