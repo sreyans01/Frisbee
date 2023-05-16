@@ -37,11 +37,15 @@ class Img2VecResnet18():
 
 
 def get_feature_vectors(img):
-    img2vec = Img2VecResnet18()
-    img_resized = cv2.resize(img, (224,224), interpolation = cv2.INTER_AREA)
-    vec = img2vec.getVec(img_resized)
-    return vec
-    
+    try:
+        img2vec = Img2VecResnet18()
+        img_resized = cv2.resize(img, (224,224), interpolation = cv2.INTER_AREA)
+        vec = img2vec.getVec(img_resized)
+        valid = True
+        return vec, valid
+    except Exception as e:
+        valid = False
+        return [0]*512, valid    
 
 def cosine_similarity(vec1, vec2):
     return 1-spatial.distance.cosine(vec1, vec2)
