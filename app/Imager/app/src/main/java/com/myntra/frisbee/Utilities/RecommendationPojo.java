@@ -9,8 +9,17 @@ import java.util.List;
 public class RecommendationPojo {
 
 
+    String message = "";
     private List<String> recommendation;
 
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
     public List<String> getRecommendation() {
         return recommendation;

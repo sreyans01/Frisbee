@@ -14,9 +14,11 @@ import com.myntra.frisbee.Utilities.RecommendationPojo;
 import com.myntra.frisbee.Utilities.repository.AppRepository;
 import com.myntra.frisbee.external.ApiResponse;
 import com.myntra.frisbee.model.ImageDetails;
+import com.myntra.frisbee.model.PredictList;
 import com.myntra.frisbee.repository.ImagesRepository;
 import com.myntra.frisbee.repository.ImagesRepositoryImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Single;
@@ -29,6 +31,10 @@ public class ImageViewModel extends ViewModel {
     ImagesRepository imagesRepository;
     ImagesRepositoryImpl imagesRepositoryImpl;
     AppRepository appRepository = AppRepository.getInstance();
+
+    public ArrayList<String> videoSnapshots;
+    public ArrayList<String> videoSnapsFileUri;
+    public long totalSnapshots = 10;
 
 
     private ImagesRepositoryImpl repository;
@@ -100,12 +106,30 @@ public class ImageViewModel extends ViewModel {
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
+    public Single<String> getTempVideoSnapshotsUrl(Uri selectedImageUri) {
+        return imagesRepositoryImpl.getTempVideoSnapshotsUrl(selectedImageUri)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
     public LiveData<Object> getImagesList() {
         return imagesRepositoryImpl.getImagesList();
     }
 
     public LiveData<RecommendationPojo> getRecommendations(String imageUrl){
         appRepository.getRecommendations(imageUrl);
+        return appRepository.recommendationPojoMutableLiveData;
+    }
+
+    public LiveData<RecommendationPojo> getRecommendations(ArrayList<String> imageUrls){
+        PredictList predictList = new PredictList();
+        predictList.setUrlList(imageUrls);
+        appRepository.getRecommendations(predictList);
+        return appRepository.recommendationPojoMutableLiveData;
+    }
+
+    public LiveData<RecommendationPojo> getRecommendationsFromYoutubeUrl(String imageUrl){
+        appRepository.getRecommendationFromYoutubeUrl(imageUrl);
         return appRepository.recommendationPojoMutableLiveData;
     }
 

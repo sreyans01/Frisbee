@@ -69,7 +69,6 @@ public class RequestRecommendations extends AsyncTask<String,Void,String> {
                 data = reader.read();
 
             }
-            Log.i("POPOPO",result);
             return result;
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -84,13 +83,11 @@ public class RequestRecommendations extends AsyncTask<String,Void,String> {
         super.onPostExecute(result);
 
         if(result==null) {
-            Log.i("popopo","lol");
 
             return;
 
         }
         try {
-            Log.i("popopo",result);
             JSONObject jsonObject = new JSONObject(result);
 
             String weatherInfo = jsonObject.getString("recommendation");
@@ -103,7 +100,5 @@ public class RequestRecommendations extends AsyncTask<String,Void,String> {
             e.printStackTrace();
         }
 
-
-        Log.i("Website content3",result);
     }
 }

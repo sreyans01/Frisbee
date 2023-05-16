@@ -37,6 +37,7 @@ public class ImagesRepositoryImpl implements ImagesRepository{
 
     private static ImagesRepositoryImpl instance;
     private StorageReference storageReference;
+    private StorageReference storageReference_videosnapshots;
     private DatabaseReference databaseReference;
     private List<ImageDetails> imageDetailsList;
 
@@ -95,6 +96,7 @@ public class ImagesRepositoryImpl implements ImagesRepository{
 
     public void setupFirebase() {
         storageReference = FirebaseStorage.getInstance().getReference().child("uploads");
+        storageReference_videosnapshots = FirebaseStorage.getInstance().getReference().child("videosnapshots");
         databaseReference = FirebaseDatabase.getInstance("https://frisbee-ed43b-default-rtdb.firebaseio.com/").getReference();
     }
 
@@ -215,5 +217,31 @@ public class ImagesRepositoryImpl implements ImagesRepository{
             }
         });
     }
+
+    public Single<String> getTempVideoSnapshotsUrl(Uri selectedImageUri) {
+        return Single.create(emitter -> {
+            if (selectedImageUri != null) {
+                String imageName =  "tempImage"+System.currentTimeMillis();
+                StorageReference fileRef = storageReference_videosnapshots.child(imageName);
+                fileRef.putFile(selectedImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                emitter.onSuccess(uri.toString());
+                            }
+                        });
+                    }
+                })
+                        .addOnFailureListener(e -> {
+                            emitter.onError(new Throwable("Error uploading image "+e.getCause()));
+                        });
+            } else {
+                emitter.onError(new Throwable("Error uploading image "));
+            }
+        });
+    }
+
 
 }

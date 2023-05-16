@@ -91,6 +91,15 @@ dependencies {
     implementation "android.arch.lifecycle:runtime:1.1.1"
     annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
 
+    implementation 'com.google.firebase:firebase-config:21.0.1'
+
+    // Library for efficient snapshots extraction from video
+    implementation 'com.github.wseemann:FFmpegMediaMetadataRetriever-core:1.0.15'
+    implementation 'com.github.wseemann:FFmpegMediaMetadataRetriever-native:1.0.15'
+
+    //Event Bus
+    implementation 'org.greenrobot:eventbus:3.2.0'
+
 }
 repositories {
     mavenCentral()

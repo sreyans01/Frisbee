@@ -63,15 +63,11 @@ public class GetRecommendations extends AsyncTask<String,Void,String> {
         super.onPostExecute(result);
 
         if(result==null) {
-
-            Log.i("KLKLKL","null");
             return;
         }
         try {
 
             JSONObject jsonObject = new JSONObject(result);
-
-            Log.i("KLKLKL",result);
 
 
         } catch (JSONException e) {
