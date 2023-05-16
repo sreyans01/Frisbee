@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<defaultsMap>
+    <entry>
+        <key>localhost_address</key>
+        <value>http://192.168.29.81:8001/</value>
+    </entry>
+
+
+</defaultsMap>
